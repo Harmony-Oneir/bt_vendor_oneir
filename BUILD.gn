@@ -17,6 +17,6 @@ ohos_shared_library("bt_vendor") {
   install_images = [ chipset_base_dir ]   # -> vendor/lib64
 
   # Подставь part_name/subsystem_name так же, как в oneir/firmware/BUILD.gn
-  part_name = "oneir_firmware"
+  part_name = "oneir_bt_vendor"
   subsystem_name = "oneir"
 }
