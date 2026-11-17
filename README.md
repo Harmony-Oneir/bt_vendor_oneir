@@ -26,12 +26,18 @@ HCI HDI-драйвер OpenHarmony (`drivers/peripheral/bluetooth/hci`) загр
 
 ## Сборка
 
+Клонирование репозитория:
+```bash
+git clone https://github.com/Harmony-Oneir/bt_vendor_oneir.git ./oneir/bluetooth/vendor
+```
+
 Каталог кладётся в `oneir/bluetooth/vendor/`, затем:
-
+```bash
     ./make.sh oneir/bluetooth/vendor:bt_vendor
-
+```
 В образе: `/vendor/lib64/libbt_vendor.z.so`.
 
 ## Отладка
-
-    hilog -x | grep bt_vendor_oneir
+```bash
+hilog -x | grep bt_vendor_oneir
+```
