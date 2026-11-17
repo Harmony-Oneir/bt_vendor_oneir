@@ -1,0 +1,22 @@
+# oneir: vendor-библиотека Bluetooth (libbt_vendor.z.so) для HCI HDI.
+# Контроллер обслуживает btusb в ядре; библиотека открывает hci0 как HCI_CHANNEL_USER.
+#
+# Сборка из корня дерева:  ./make.sh oneir/bluetooth/vendor:bt_vendor
+# В образе: /vendor/lib64/libbt_vendor.z.so
+
+import("//build/ohos.gni")
+
+ohos_shared_library("bt_vendor") {
+  sources = [ "bt_vendor_oneir.cpp" ]
+
+  # ohos_bt_vendor_lib.h — интерфейс, который ждёт HDI-драйвер
+  include_dirs = [ "//drivers/peripheral/bluetooth/hci/hdi_service/implement" ]
+
+  external_deps = [ "hilog:libhilog" ]
+
+  install_images = [ chipset_base_dir ]   # -> vendor/lib64
+
+  # Подставь part_name/subsystem_name так же, как в oneir/firmware/BUILD.gn
+  part_name = "oneir_firmware"
+  subsystem_name = "oneir"
+}
